@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: #07020f;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  background:
+    radial-gradient(circle at 12% -8%, rgba(225, 74, 244, 0.2), transparent 25rem),
+    radial-gradient(circle at 75% 0%, rgba(135, 77, 255, 0.18), transparent 32rem),
+    radial-gradient(circle at 100% 68%, rgba(34, 221, 189, 0.07), transparent 23rem),
+    #07020f;
+  color: #f5efff;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #e14af4;
+  color: #07020f;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button:focus-visible,
+input:focus-visible,
+select:focus-visible {
+  outline: 2px solid #e14af4;
+  outline-offset: 2px;
+}
+
+.app-shell {
+  background-image:
+    linear-gradient(rgba(169, 81, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(169, 81, 255, 0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+.neo-surface {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(164, 73, 237, 0.34);
+  background: linear-gradient(135deg, rgba(28, 10, 53, 0.94), rgba(10, 3, 26, 0.96));
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.3), 0 0 42px rgba(122, 53, 230, 0.1);
+}
+
+.neo-surface::before {
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 1px;
+  content: "";
+  background: linear-gradient(90deg, transparent, rgba(241, 113, 255, 0.9), transparent);
+  opacity: 0.85;
+}
+
+.neo-surface > * {
+  position: relative;
+}

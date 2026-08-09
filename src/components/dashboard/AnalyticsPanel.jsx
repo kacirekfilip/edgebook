@@ -74,7 +74,7 @@ export default function AnalyticsPanel({ trades, startingCapital }) {
       <article className="neo-surface rounded-2xl p-5 xl:col-span-2 sm:p-6">
         <p className="text-sm font-semibold text-accent sm:text-base">Performance snapshot</p>
         <h2 className="mt-1 text-lg font-semibold text-white sm:text-xl">Co říkají data</h2>
-        <div className="mt-5 grid grid-cols-1 gap-3 sm:grid-cols-2 xl:grid-cols-1">
+        <div className="mt-5 grid grid-cols-2 gap-3 xl:grid-cols-1">
           <CompactMetric label="Profit factor" value={profitFactor} detail="Hrubý zisk / hrubá ztráta" accent={analytics.profitFactor === null || analytics.profitFactor >= 1 ? "text-positive" : "text-negative"} />
           <CompactMetric label="Průměrné R" value={analytics.averageR !== null ? `${formatR(analytics.averageR)}R` : "—"} detail="Čistý výsledek vůči risku" accent={analytics.averageR !== null ? (analytics.averageR >= 0 ? "text-positive" : "text-negative") : "text-slate-400"} />
           <CompactMetric label="Nejlepší setup" value={analytics.bestSetup?.setup ?? "—"} detail={analytics.bestSetup ? `${formatCurrency(analytics.bestSetup.netPnl)} · ${analytics.bestSetup.winRate}% win rate` : "Zatím bez dat"} />
@@ -85,7 +85,7 @@ export default function AnalyticsPanel({ trades, startingCapital }) {
           <div><p className="text-sm font-semibold text-accent sm:text-base">Setup performance</p><h2 className="mt-1 text-lg font-semibold text-white sm:text-xl">Které setupy ti skutečně vydělávají</h2></div>
           <p className="text-sm text-slate-400 sm:text-base">{analytics.tradeCount} obchodů ve výběru</p>
         </div>
-        <div className="mt-5 grid grid-cols-1 gap-3 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-5 grid grid-cols-2 gap-3 xl:grid-cols-4">
           {analytics.bySetup.length ? analytics.bySetup.map((setup, index) => (
             <div className="rounded-xl border border-line/80 bg-ink/50 p-4" key={`${setup.setup}-${index}`}>
               <p className="truncate font-semibold text-slate-100 sm:text-base">{setup.setup}</p>

@@ -1,3 +1,5 @@
+"use client";
+
 import { supabase } from "@/lib/supabase";
 import { useRouter } from "next/navigation";
 
@@ -48,10 +50,14 @@ export default function Header({ onAddTrade, onOpenSettings }) {
             <span aria-hidden="true">+</span> Přidat obchod
           </button>
           <button
-            className="rounded-lg px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-slate-500 hover:text-white"
+            className="inline-flex items-center gap-2 rounded-lg border border-line bg-panel px-3 py-2 text-sm font-medium text-slate-300 transition hover:border-rose-500/60 hover:text-white"
             type="button"
             onClick={handleLogout}
+            aria-label="Odhlásit se"
           >
+            <svg className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+            </svg>
             Odhlásit
           </button>
         </div>

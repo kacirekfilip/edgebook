@@ -2,14 +2,14 @@
 
 import { useEffect, useState } from "react";
 import { deleteTradeById, initializeTrades, saveTrade } from "@/lib/tradeRepository";
-import { initialTrades } from "@/components/dashboard/mockTrades";
+
 
 function sortByNewest(trades) {
   return [...trades].sort((first, second) => `${second.date}-${second.createdAt ?? ""}`.localeCompare(`${first.date}-${first.createdAt ?? ""}`));
 }
 
 export function useTrades() {
-  const [trades, setTrades] = useState(initialTrades);
+  const [trades, setTrades] = useState([]);
   const [isReady, setIsReady] = useState(false);
   const [error, setError] = useState("");
 
@@ -18,7 +18,7 @@ export function useTrades() {
 
     async function loadTrades() {
       try {
-        const savedTrades = await initializeTrades(initialTrades);
+        const savedTrades = await initializeTrades();
         if (isMounted) setTrades(savedTrades);
       } catch (databaseError) {
         if (isMounted) setError(databaseError.message ?? "Lokální databázi se nepodařilo načíst.");
